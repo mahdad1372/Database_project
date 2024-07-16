@@ -5,6 +5,7 @@ import com.Springpro.Springpro_database22.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,19 @@ public class UserService {
 
     public List<User> getAll(){
         return userRepository.findAll();
+    }
+
+    public List<User> getUserwithname(String name){
+        return userRepository.findByNameByQuery(name);
+    }
+
+//    public List<User> getAll(){
+//        return userRepository.findAll();
+//    }
+
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
+
     }
 
     public void saveUser(Long id, String name){
