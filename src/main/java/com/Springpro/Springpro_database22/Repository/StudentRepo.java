@@ -14,7 +14,7 @@ public interface StudentRepo extends JpaRepository<Student,Integer> {
     public List<Student> fetchallfromcustomers();
     @Query("SELECT u FROM Student u WHERE u.name = ?1")
     public List<Student> fetchallfromcustomerswithName(String name);
-//    @Query(value = "insert into Student (mark,name) VALUES (:mark,:name)",nativeQuery = true)
+
     @Modifying
     @Transactional
     @Query(value = "SELECT * FROM student_db  WHERE name = :name AND st_mark = :mark ", nativeQuery = true)
